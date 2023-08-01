@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Tips and Tricks</title>
+    <script src="./color.js" defer></script>
+    <script src="./word.js" defer></script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: hsl(0 0% 8%);
+            color: white;
+        }
+
+        body>* {
+            margin: 1rem 0;
+            padding: 1rem;
+        }
+
+        button,
+        input,
+        select {
+            padding: 0.5rem;
+            border-radius: 1rem;
+        }
+
+        .generate-random-color {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+        }
+
+        #color-result {
+            width: 5rem;
+            height: 5rem;
+            border-radius: 1rem;
+            margin-top: 0.5rem;
+            transition: background-color 200ms ease;
+        }
+
+        .word-manipulation>* {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="generate-random-color">
+        <p>Generate a random color!</p>
+        <div>
+            <button id="generate-color">
+                Generate
+            </button>
+            <select id="color-type">
+                <option value="hex">Hex</option>
+                <option value="rgb">Rgb</option>
+                <option value="hsl">Hsl</option>
+            </select>
+        </div>
+        <div>
+            <div id="color-result-text"></div>
+            <div id="color-result"></div>
+        </div>
+    </div>
+
+    <div class="word-manipulation">
+        <p>Change Letters to Uppercase & Remove Excess!</p>
+        <div>
+            <input id="sentence-input-for-character-manipulation" type="text" placeholder="Enter a sentence here..." />
+            <div>
+                <p style="font-size: 1.25rem;">Length of characters indicator to when we'll cut the sentence</p>
+                <input type="number" id="length-of-cut" min="1" placeholder="Enter length here..." />
+            </div>
+            <div>
+                <p style="font-size: 1.25rem;">
+                    Cut by word or by character?
+                </p>
+                <select id="type-of-sentence-cut">
+                    <option value="by-word">by word</option>
+                    <option value="by-character">by character</option>
+                </select>
+            </div>
+
+            <div>
+                <p style="font-size: 1.25rem;">
+                    What will we transform to uppercase?
+                </p>
+                <select id="type-of-transformation">
+                    <option value="all-the-characters">all the characters</option>
+                    <option value="each-word">first letter of each word</option>
+                </select>
+            </div>
+        </div>
+        <button style="margin: 1rem 0;" id="generate-manipulated-word">Start cutting and formatting!</button>
+        <div>
+            <p style="margin: 0.5rem 0; font-size: 1.1rem;">Your result will be below here:</p>
+            <div id="word-manipulation-result"></div>
+        </div>
+    </div>
+</body>
+
+</html>
